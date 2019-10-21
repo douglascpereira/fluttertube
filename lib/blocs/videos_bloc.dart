@@ -33,28 +33,9 @@ class VideosBloc implements BlocBase {
   }
 
   @override
-  void addListener(listener) {
-    // TODO: implement addListener
-  }
-
-  @override
   void dispose() {
     _videosController.close();
     _searchController.close();
-  }
-
-  @override
-  // TODO: implement hasListeners
-  bool get hasListeners => null;
-
-  @override
-  void notifyListeners() {
-    // TODO: implement notifyListeners
-  }
-
-  @override
-  void removeListener(listener) {
-    // TODO: implement removeListener
   }
 
 }
