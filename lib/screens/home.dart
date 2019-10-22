@@ -6,6 +6,8 @@ import 'package:fluttertube/delegates/data_search.dart';
 import 'package:fluttertube/models/video.dart';
 import 'package:fluttertube/widgets/video_tile.dart';
 
+import 'favorites.dart';
+
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,6 @@ class Home extends StatelessWidget {
             alignment: Alignment.center,
             child: StreamBuilder<Map<String, Video>>(
               stream: BlocProvider.of<FavoriteBloc>(context).outFav,
-              initialData: {},
               builder: (context, snapshot){
                 if(snapshot.hasData) return Text("${snapshot.data.length}");
                 else return Container();
@@ -36,7 +37,9 @@ class Home extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.star),
             onPressed: (){
-
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context)=> Favorites())
+              );
             },
           ),
           IconButton(
